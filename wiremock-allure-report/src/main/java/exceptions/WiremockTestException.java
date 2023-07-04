@@ -5,8 +5,4 @@ public class WiremockTestException extends RuntimeException {
 		super(message, cause);
 	}
 
-	public WiremockTestException(String message) {
-		super(message);
-	}
-
 }

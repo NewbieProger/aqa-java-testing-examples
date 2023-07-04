@@ -7,13 +7,14 @@ import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import org.w3c.dom.Document;
 import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
 
 import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.transform.OutputKeys;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.*;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
+import java.io.IOException;
 import java.io.StringReader;
 import java.io.StringWriter;
 import java.io.Writer;
@@ -21,12 +22,12 @@ import java.io.Writer;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class ReportHandlers {
 
-	public static String prettyPrintJson(String json) {
+	public static String prettyPrintJson(String jsonString) {
 		try {
-			return ObjectMapperConfiguration.getDefaultObjectMapper().readTree(json).toPrettyString();
+			return ObjectMapperConfiguration.getDefaultObjectMapper().readTree(jsonString).toPrettyString();
 		} catch (JsonProcessingException e) {
 			throw new WiremockTestException(
-					"Something went wrong during parsing string to json:\n" + json);
+					"Something went wrong during parsing string to json:\n" + jsonString, e);
 		}
 	}
 
@@ -44,9 +45,12 @@ public class ReportHandlers {
 
 			Writer out = new StringWriter();
 			transformer.transform(new DOMSource(document), new StreamResult(out));
-			return out.toString().replaceAll("\\s+\\n","\n");
-		} catch (Exception e) {
-			throw new WiremockTestException("Error occurs when pretty-printing xml:\n" + xmlString, e);
+			return out.toString().replaceAll("\\s+\\n", "\n");
+
+		} catch (ParserConfigurationException | IOException | SAXException | TransformerException e) {
+			throw new WiremockTestException(
+					"Something went wrong during parsing string to xml:\n" + xmlString, e);
 		}
+
 	}
 }

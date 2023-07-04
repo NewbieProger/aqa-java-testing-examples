@@ -1,3 +1,5 @@
+Example of collecting serve events (outer requests, stubMappings, etc.) that helps you to beatify your report
+
 Use this method:
 ```java
 public class MockReportHandler {
@@ -15,7 +17,7 @@ Example of result:
 
 ![report-example](./wiremock-requests-list.png)
 
-In spoiler:
+Inside of spoilers:
 
 ```json
 Received Request:
