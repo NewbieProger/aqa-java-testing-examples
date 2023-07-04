@@ -1,8 +1,3 @@
-Example of result
-
-
-![report-example](./wiremock-requests-list.png)
-
 Use this method:
 ```java
 public class MockReportHandler {
@@ -16,7 +11,11 @@ public class MockReportHandler {
 }
 ```
 
+Example of result:
 
+![report-example](./wiremock-requests-list.png)
+
+In spoiler:
 
 ```json
 Received Request:
