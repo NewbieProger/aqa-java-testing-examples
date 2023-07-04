@@ -1,4 +1,4 @@
-Example of collecting serve events (outer requests, stubMappings, etc.) that helps you to beatify your report
+Example of collecting serve events (outer requests, stubMappings, etc.) that helps you to beautify your report
 
 Use this method:
 ```java
