@@ -3,6 +3,7 @@ Example of result
 
 ![report-example](./wiremock-requests-list.png)
 
+Use this method:
 ```java
 public class MockReportHandler {
 //    ...
