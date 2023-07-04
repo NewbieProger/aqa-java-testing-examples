@@ -59,6 +59,7 @@ Content-Type: application/json
 Matched Stub Mapping:
 
 {
+  "priority" : 10,
   "id" : "124b3e5e-fd5a-4fe7-892d-e8af0bcf8539",
   "request" : {
     "urlPattern" : "/shops",
@@ -69,8 +70,7 @@ Matched Stub Mapping:
     "proxyBaseUrl" : "/proxy/url",
     "transformers" : [ "response-template" ]
   },
-  "uuid" : "124b3e5e-fd5a-4fe7-892d-e8af0bcf8539",
-  "priority" : 10
+  "uuid" : "124b3e5e-fd5a-4fe7-892d-e8af0bcf8539"
 }
 -----------------
 Stub Response Body:
