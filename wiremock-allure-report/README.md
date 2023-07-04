@@ -1,7 +1,7 @@
 Example of result
 
 
-![report-example](/wiremock-requests-list.png)
+![report-example](./wiremock-requests-list.png)
 
 ```java
 public class MockReportHandler {
