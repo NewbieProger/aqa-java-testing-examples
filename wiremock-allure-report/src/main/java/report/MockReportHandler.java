@@ -16,9 +16,9 @@ import java.util.Objects;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class MockReportHandler {
 
+	public static final String PARAGRAPH_SEPARATOR = "\n-----------------\n";
 	private static final String MOCK_ATTACHMENT_TITLE = "%s request: [ %s ]: %s";
 	private static final String PRETTY_PRINTED_BODY = "Content-Type: %s\n\n %s";
-	public static final String PARAGRAPH_SEPARATOR = "\n-----------------\n";
 
 	public static void attachOuterAndStubContent(List<ServeEvent> serveEvents) {
 		serveEvents.forEach(serveEvent -> formAttachedStubContent(serveEvent, serveEvent.getWasMatched()));

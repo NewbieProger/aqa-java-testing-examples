@@ -1,0 +1,61 @@
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>newbie.proger.examples</groupId>
+    <version>1.0-SNAPSHOT</version>
+    <artifactId>bom</artifactId>
+    <packaging>pom</packaging>
+
+    <properties>
+        <lombok.version>1.18.24</lombok.version>
+        <assertj-core.version>3.23.1</assertj-core.version>
+        <jackson-core.version>2.13.4</jackson-core.version>
+        <jackson-datatype-jsr310.version>2.13.4</jackson-datatype-jsr310.version>
+        <allure.json-unit>2.19.0</allure.json-unit>
+        <junit.version>4.13.2</junit.version>
+        <jackson-databind.version>2.13.4.2</jackson-databind.version>
+        <wiremock.core>2.27.2</wiremock.core>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.assertj</groupId>
+                <artifactId>assertj-core</artifactId>
+                <version>${assertj-core.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-core</artifactId>
+                <version>${jackson-core.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.datatype</groupId>
+                <artifactId>jackson-datatype-jsr310</artifactId>
+                <version>${jackson-datatype-jsr310.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-jsonunit</artifactId>
+                <version>${allure.json-unit}</version>
+            </dependency>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.tomakehurst</groupId>
+                <artifactId>wiremock-jre8</artifactId>
+                <version>${wiremock.core}</version>
+            </dependency>
+        </dependencies>
+
+    </dependencyManagement>
+</project>
