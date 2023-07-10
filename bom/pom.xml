@@ -16,6 +16,10 @@
         <junit.version>4.13.2</junit.version>
         <jackson-databind.version>2.13.4.2</jackson-databind.version>
         <wiremock.core>2.27.2</wiremock.core>
+        <feign-core.version>12.3</feign-core.version>
+        <feign-jackson.version>12.3</feign-jackson.version>
+        <zeebe-client-java.version>8.1.7</zeebe-client-java.version>
+        <rest-assured.version>5.2.0</rest-assured.version>
     </properties>
 
     <dependencyManagement>
@@ -54,6 +58,26 @@
                 <groupId>com.github.tomakehurst</groupId>
                 <artifactId>wiremock-jre8</artifactId>
                 <version>${wiremock.core}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.camunda</groupId>
+                <artifactId>zeebe-client-java</artifactId>
+                <version>${zeebe-client-java.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.openfeign</groupId>
+                <artifactId>feign-core</artifactId>
+                <version>${feign-core.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.openfeign</groupId>
+                <artifactId>feign-jackson</artifactId>
+                <version>${feign-jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.rest-assured</groupId>
+                <artifactId>rest-assured</artifactId>
+                <version>${rest-assured.version}</version>
             </dependency>
         </dependencies>
 
