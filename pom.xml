@@ -11,6 +11,7 @@
         <module>zeebe-operate-feign-client</module>
         <module>bom</module>
         <module>xml-unit-placeholders</module>
+        <module>retry-utils</module>
     </modules>
 
     <properties>
