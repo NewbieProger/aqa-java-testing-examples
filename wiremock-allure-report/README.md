@@ -20,7 +20,7 @@ Example of result:
 
 Inside of spoilers:
 
-```json
+```text
 Received Request:
 
 {
