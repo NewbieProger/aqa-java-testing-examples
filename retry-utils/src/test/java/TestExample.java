@@ -8,8 +8,8 @@ import java.util.List;
 public class TestExample {
 
     /**
-     * Here's you can see an example of using one of method for waiting
-     * We check that DB has been cleared and if not we wait for it
+     * Here's you can see an example of using one of methods for waiting<br>
+     * We check that DB has been cleared and if not we wait for it<br>
      * At 20th row you can see that we attach something if retires count exhausted
      */
     @Test

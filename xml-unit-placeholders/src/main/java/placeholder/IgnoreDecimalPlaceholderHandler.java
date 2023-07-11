@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 public class IgnoreDecimalPlaceholderHandler implements PlaceholderHandler {
 
 	/**
-	 * example: ${xmlunit.ignoreDecimal(555.555000)}
+	 * example: ${xmlunit.ignoreDecimal(555.555000)}<br>
 	 * note: the check compares the numbers mathematically
 	 */
 	private static final String PLACEHOLDER_NAME = "ignoreDecimal";

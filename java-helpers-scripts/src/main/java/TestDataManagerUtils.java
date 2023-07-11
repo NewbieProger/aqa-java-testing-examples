@@ -1,3 +1,4 @@
+import exceptions.SomeTestException;
 import lombok.experimental.UtilityClass;
 import lombok.extern.slf4j.Slf4j;
 
@@ -6,8 +7,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -16,6 +17,44 @@ import java.util.stream.Stream;
 public class TestDataManagerUtils {
 
 	private static final String PATH_TO_TEST_DATA = "module/src/test/resources/testdata";
+	private static final String FILE_DOES_NOT_EXIST_ERROR = "File %s does not exist!";
+
+
+	private static Map<String, String> testDataFileNames = new HashMap<>();
+
+	/**
+	 * If you put relative paths in your steps in tests, you can use this method to beautify ones<br>
+	 * K - filename, V - relative path to file<br>
+	 *
+	 * Use it with `getRelativePathToFile(String filePath)`
+	 */
+	public static void setupTestDataFileNames() {
+		Path testDataDirectoryClassLoader = new File(Objects.requireNonNull(
+						TestDataManagerUtils.class.getClassLoader().getResource(PATH_TO_TEST_DATA))
+				.getFile()).toPath();
+		try (final Stream<Path> walk = Files.walk(testDataDirectoryClassLoader)) {
+			testDataFileNames = walk.filter(Predicate.not(Files::isDirectory))
+					.map(testDataDirectoryClassLoader::relativize)
+					.collect(Collectors.toMap(path -> path.getFileName().toString(), Path::toString,
+							(file, duplicate) -> {
+								throw new SomeTestException(
+										"\nFile \"" + file + "\" has the same name as a file \"" + duplicate + "\"");
+							}));
+		} catch (IOException e) {
+			throw new SomeTestException("Error during scanning path " + testDataDirectoryClassLoader, e);
+		}
+	}
+
+	private static String getRelativePathToFile(String filePath) {
+		if (Objects.isNull(testDataFileNames)) {
+			String relativePath = testDataFileNames.get(filePath);
+			if (Objects.isNull(relativePath)) {
+				throw new SomeTestException(String.format(FILE_DOES_NOT_EXIST_ERROR, filePath));
+			}
+			return relativePath;
+		}
+		return filePath;
+	}
 
 	/**
 	 * Method for changing filenames
@@ -82,11 +121,11 @@ public class TestDataManagerUtils {
 	}
 
 	/**
-	 * Delete empty folders
+	 * Delete empty folders<br>
 	 * It's good to use after deleteFiles()
-	 * @see TestDataManagerUtils#deleteFiles(String)
 	 *
 	 * @throws IOException exception
+	 * @see TestDataManagerUtils#deleteFiles(String)
 	 */
 	public static void deleteEmptyFolders() throws IOException {
 		try (final Stream<Path> walk = Files.walk(Paths.get(PATH_TO_TEST_DATA))) {

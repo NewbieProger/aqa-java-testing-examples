@@ -9,7 +9,7 @@ import java.util.Map;
 public class ZeebeOperateStepDefinitions {
 
 	/**
-	 * You can't delete active processes, so you have to cancel it before
+	 * You can't delete active processes, so you have to cancel it before<br>
 	 * I don't recommend trying to delete processes after that because operate has troubles with it
 	 */
 	@Description("Cancel all active processes in Zeebe")
