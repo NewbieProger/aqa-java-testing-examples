@@ -12,6 +12,7 @@
         <module>bom</module>
         <module>xml-unit-placeholders</module>
         <module>retry-utils</module>
+        <module>java-helpers-scripts</module>
     </modules>
 
     <properties>

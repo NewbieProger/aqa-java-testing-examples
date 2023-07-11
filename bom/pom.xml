@@ -21,10 +21,16 @@
         <zeebe-client-java.version>8.1.7</zeebe-client-java.version>
         <rest-assured.version>5.2.0</rest-assured.version>
         <xmlunit-placeholders.version>2.9.0</xmlunit-placeholders.version>
+        <logback.version>1.4.4</logback.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>${logback.version}</version>
+            </dependency>
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
