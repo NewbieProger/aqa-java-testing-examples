@@ -13,6 +13,7 @@
         <module>xml-unit-placeholders</module>
         <module>retry-utils</module>
         <module>java-helpers-scripts</module>
+        <module>redis-fabric-example</module>
     </modules>
 
     <properties>
