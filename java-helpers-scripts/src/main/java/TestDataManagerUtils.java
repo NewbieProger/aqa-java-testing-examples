@@ -72,7 +72,7 @@ public class TestDataManagerUtils {
 						File newFile = new File(
 								path.toFile().getAbsolutePath().replaceFirst(replaceRegex, replaceToStr));
 						if (path.toFile().renameTo(newFile)) {
-							log.info("\nФайл {} переименован в: {}", path.toAbsolutePath(),
+							log.info("\nFile {} renamed to: {}", path.toAbsolutePath(),
 									newFile.getAbsolutePath());
 						}
 					});
@@ -100,7 +100,6 @@ public class TestDataManagerUtils {
 				.map(File::getName)
 				.sorted()
 				.collect(Collectors.joining("\t\n"));
-		System.out.println("Файлы, найденные при фильтрации\n" + collect);
 		log.info("Found files\n" + collect);
 		return fileList;
 	}
