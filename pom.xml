@@ -10,6 +10,7 @@
         <module>wiremock-allure-report</module>
         <module>zeebe-operate-feign-client</module>
         <module>bom</module>
+        <module>xml-unit-placeholders</module>
     </modules>
 
     <properties>
