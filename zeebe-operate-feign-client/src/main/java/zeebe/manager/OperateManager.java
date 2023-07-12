@@ -26,7 +26,7 @@ public class OperateManager {
 
 	/**
 	 * WARNING!<br>
-	 * You have call this method in {@link BeforeClass} to collect map of definition keys and their bpmnProcess id's
+	 * You have to call this method in {@link BeforeClass} to collect a map of definition keys and their bpmnProcess id's
 	 */
 	public static void collectOperateProcessDefinitionKeysMap() {
 		OperateRequestDto operateRequestDto = OperateRequestDto.builder().build();
